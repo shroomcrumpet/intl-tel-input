@@ -853,9 +853,14 @@
             key: "_highlightListItem",
             value: function _highlightListItem(listItem) {
                 var prevItem = this.highlightedItem;
-                if (prevItem) prevItem.classList.remove("highlight");
+                if (prevItem) {
+                    prevItem.classList.remove("highlight");
+                    prevItem.tabIndex = -1;
+                }
                 this.highlightedItem = listItem;
                 this.highlightedItem.classList.add("highlight");
+                this.highlightedItem.tabIndex = 0;
+                this.highlightedItem.focus();
             }
         }, {
             key: "_getCountryData",
